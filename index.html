@@ -24,6 +24,40 @@
         </ul>
     </nav>
 
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="task-form">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Nombre de la tarea" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="description" cols="30" rows="10" class="form-control" placeholder="Descripcion de la tarea"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block text-center">
+                                Guardar tarea
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <table class="table trable-border table-sm">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Nombre</td>
+                            <td>Descripcion</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tasks"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
