@@ -8,9 +8,9 @@ $(function() {
             type: 'POST',
             data: { search },
             success: function(response) {
-                //console.log(response);
-                let tasks = JSON.parse(response);
-                console.log(tasks);
+                console.log(response);
+                //let tasks = JSON.parse(response);
+                //console.log(tasks);
             }
 
         })
