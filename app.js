@@ -1,6 +1,6 @@
 $(function() {
     console.log('JQuery esta funcionando');
-    $('#search').keyup(function() {
+    $('#search').keyup(function(e) {
         let search = $('#search').val();
         console.log(search);
         $.ajax({
@@ -8,9 +8,10 @@ $(function() {
             type: 'POST',
             data: { search },
             success: function(response) {
-                console.log(response);
-                //let tasks = JSON.parse(response);
-                //console.log(tasks);
+                //console.log(response);
+                var tarea = JSON.stringify(response);
+                let tasks = JSON.parse(tarea);
+                console.log(tasks);
             }
 
         })
