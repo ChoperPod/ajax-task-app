@@ -1,17 +1,20 @@
-$(function() {
+$(document).ready(function () {
     console.log('JQuery esta funcionando');
-    $('#search').keyup(function(e) {
+    $('#search').keyup(function (e) {
         let search = $('#search').val();
-        console.log(search);
+        //console.log(search);
         $.ajax({
             url: 'task-search.php',
             type: 'POST',
             data: { search },
-            success: function(response) {
+            success: function (response) {
                 //console.log(response);
-                var tarea = JSON.stringify(response);
-                let tasks = JSON.parse(tarea);
-                console.log(tasks);
+                //let tarea = JSON.stringify(response);
+                let tasks = JSON.parse(response);
+                //console.log(tasks);
+                tasks.forEach(task => {
+                    console.log(task);
+                })
             }
 
         })
