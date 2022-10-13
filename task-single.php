@@ -2,7 +2,7 @@
 include('database.php');
 //if (isset($_POST['id_e'])){
     $id = $_POST['id_e'];
-    $qry = "SELECT * FROM tareas WHERE ID = $id";
+    $qry = "SELECT * FROM TAREAS WHERE ID = $id";
     $result = mysqli_query($connection,$qry);
     if(!$result){
         die('no se puede editar el registro');
@@ -15,9 +15,7 @@ include('database.php');
             'id' => $row['id']
         );
     }
-    $jsonstring = json_encode($json);
+
+    $jsonstring = json_encode($json[0]);
     echo $jsonstring;
-//}
-
-
 ?>
