@@ -1,4 +1,6 @@
 $(document).ready(function () {
+//variable que condiciona si el boton guardara o actualizara el elemento
+    let editando = false; 
     console.log('JQuery esta funcionando');
     $('#task-result').hide();
     fetchTask();
@@ -98,6 +100,7 @@ $(document).ready(function () {
             console.log(task.nombre);
             $('#name').val(task.nombre);
             $('#description').val(task.descripcion);
+            let editando = true;
         })
 
     });
