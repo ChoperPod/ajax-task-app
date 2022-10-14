@@ -1,6 +1,6 @@
 $(document).ready(function () {
-//variable que condiciona si el boton guardara o actualizara el elemento
-    let editando = false; 
+    //variable que condiciona si el boton guardara o actualizara el elemento
+    let editando = false;
     console.log('JQuery esta funcionando');
     $('#task-result').hide();
     fetchTask();
@@ -36,11 +36,13 @@ $(document).ready(function () {
         console.log('guardando...');
         const postData = {
             name: $('#name').val(),
-            description: $('#description').val()
+            description: $('#description').val(),
+            id: $('#taskId').val()
         };
+        let url_e = editando == false ? 'task-add.php' : 'task-edit.php';
         //console.log(postData);
-        $.post('task-add.php', postData, function (response) {
-            //console.log(response);
+        $.post(url_e, postData, function (response) {
+            console.log(response);
             fetchTask();
             $('#task-form').trigger("reset");
         });
@@ -73,6 +75,7 @@ $(document).ready(function () {
                     </tr>`
                 });
                 $('#tasks').html(template_list);
+                editando = false;
             }
         })
     }
@@ -90,17 +93,18 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '.task-item', function(){
+    $(document).on('click', '.task-item', function () {
         //console.log("editando el registro");
         let element_e = $(this)[0].parentElement.parentElement;
         let id_e = $(element_e).attr('task-id');
         console.log(id_e);
-        $.post('task-single.php',{id_e}, function(response){
+        $.post('task-single.php', { id_e }, function (response) {
             const task = JSON.parse(response);
             console.log(task.nombre);
             $('#name').val(task.nombre);
             $('#description').val(task.descripcion);
-            let editando = true;
+            $('#taskId').val(task.id);
+            editando = true;
         })
 
     });
